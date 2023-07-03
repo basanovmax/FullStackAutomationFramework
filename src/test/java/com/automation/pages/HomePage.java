@@ -14,8 +14,7 @@ public class HomePage extends BasePage{
 	@FindBy(xpath = "//img[@class = 'user-avatar rounded-circle']")
 	WebElement userIcon;
 
-	@FindBy(id = "savings-menu")
-	WebElement savingMenuBtn;
+
 	@FindBy(id = "new-savings-menu-item")
 	WebElement newSavingBtn;
 
@@ -33,9 +32,7 @@ public class HomePage extends BasePage{
 		newCheckingBtn.click();
 	}
 
-	public void userClickOnSavings() {
-		 savingMenuBtn.click();
-	}
+
 
 	public void clickOnNewSaving() {
 		newSavingBtn.click();

@@ -8,6 +8,11 @@ import io.cucumber.java.en.When;
 public class SavingSteps {
 
 	SavingPage savingPage = new SavingPage();
+
+	@When("user click on savings tab")
+	public void user_click_on_savings_tab() {
+		savingPage.userClickOnSavings();
+	}
 	@Then("verify new savings account page is displayed")
 	public void verify_new_savings_account_page_is_displayed() {
 	savingPage.verifyCreateSavingPage();

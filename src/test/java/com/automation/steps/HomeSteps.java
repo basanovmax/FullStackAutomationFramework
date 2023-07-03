@@ -27,12 +27,7 @@ public class HomeSteps {
 		homePage.clickOnNewChecking();
 	}
 
-	@When("user click on savings tab")
-	public void user_click_on_savings_tab() {
-		homePage.userClickOnSavings();
 
-
-	}
 	@When("click on New Savings button")
 	public void click_on_new_savings_button() {
 	homePage.clickOnNewSaving();

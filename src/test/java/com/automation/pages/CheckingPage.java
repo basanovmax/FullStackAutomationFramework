@@ -22,29 +22,28 @@ public class CheckingPage extends BasePage{
 
 	@FindBy(xpath = "//strong[contains(text(), 'New Checking Account')]")
 	WebElement newCheckingSign;
-	@FindBy(id = "page-title")
-	WebElement viewCheckingAccountSign;
-	@FindBy(id ="new-account-conf-alert")
-	WebElement newAccountAlert;
 
-	@FindBy(xpath = "//tr[@class='odd']/td[4]")
-	WebElement depositAmountTransaction;
+
+
+
 	public void verifyCreateCheckingPage() {
 		Assert.assertTrue(newCheckingSign.isDisplayed());
 	}
-	public void verifyViewCheckingAccounts() {
-		Assert.assertTrue(viewCheckingAccountSign.isDisplayed());
-	}
 
-	public void verifyNewAccountAlert() {
-		Assert.assertTrue(newAccountAlert.isDisplayed());
-	}
+
 
 	public void enterUserDetails() {
 		standardCheckingBtn.click();
 		individualBtn.click();
-		accountNameInput.sendKeys(ConfigReader.getProperty("accountNameChecking"));
-		depositAmountInput.sendKeys(ConfigReader.getProperty("depositAmountChecking"));
+
+		String accountName = "TestCheckingAccount" + getRandomNumber();
+
+		accountNameInput.sendKeys(accountName);
+
+		ConfigReader.setProperty("account.name", accountName);
+		int amount = getRandomNumber();
+		depositAmountInput.sendKeys(amount + ""); // Integer convert to String
+		ConfigReader.setProperty("transaction.amount", amount + "");
 
 	}
 
@@ -52,7 +51,4 @@ public class CheckingPage extends BasePage{
 		submitCheckingBtn.click();
 	}
 
-	public void verifyDepositIsDisplayed() {
-		//Assert.assertEquals(depositAmountTransaction.toString().concat(1) , ConfigReader.getProperty("depositAmountDeposit"));
-	}
 }

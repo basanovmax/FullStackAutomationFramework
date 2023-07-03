@@ -20,6 +20,8 @@ public class SavingPage extends BasePage{
 	WebElement depositAmountInput;
 	@FindBy(xpath = "//h1[contains(text(), 'View Savings Accounts')]")
 	WebElement viewSavingAccountSign;
+	@FindBy(id = "savings-menu")
+	WebElement savingMenuBtn;
 
 	public void verifyCreateSavingPage() {
 		Assert.assertTrue(newSavingsSign.isDisplayed());
@@ -28,9 +30,17 @@ public class SavingPage extends BasePage{
 	public void enterUserDetails() {
 		savingsBnt.click();
 		individualBtn.click();
-		accountNameInput.sendKeys(ConfigReader.getProperty("accountNameSavings"));
-		depositAmountInput.sendKeys(ConfigReader.getProperty("depositAmountSavings"));
 
+
+
+		String accountName = "TestSavingAccount" + getRandomNumber();
+
+		accountNameInput.sendKeys(accountName);
+
+		ConfigReader.setProperty("account.name", accountName);
+		int amount = getRandomNumber();
+		depositAmountInput.sendKeys(amount + ""); // Integer convert to String
+		ConfigReader.setProperty("transaction.amount", amount + "");
 	}
 	public void clickOnSubmitBtn(){
 		submitSavingsBtn.click();
@@ -39,5 +49,7 @@ public class SavingPage extends BasePage{
 	public void verifyUserOnViewSavingsAccount() {
 		Assert.assertTrue(viewSavingAccountSign.isDisplayed());
 	}
-
+	public void userClickOnSavings() {
+		savingMenuBtn.click();
+	}
 }

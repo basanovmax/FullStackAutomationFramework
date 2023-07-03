@@ -14,10 +14,6 @@ public class LoginSteps {
 		loginPage.openWebsite();
 	}
 
-	@When("user enter the username {string} and password {string}")
-	public void user_enter_the_username_and_password(String usernameKey, String passwordKey) {
-		loginPage.doLogin(ConfigReader.getProperty(usernameKey) , ConfigReader.getProperty(passwordKey));
-	}
 
 	@When("user login with valid credentials username {string} and password {string}")
 	public void userLoginWithValidCredentialsUsernameAndPassword(String usernameKey, String passwordKey) {

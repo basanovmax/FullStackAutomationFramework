@@ -23,18 +23,6 @@ public class CheckingSteps {
 	checkingPage.clickOnSubmitCheckingBtn();
 	}
 
-	@Then("verify view checking account page is displayed")
-	public void verify_view_checking_account_page_is_displayed() {
-		checkingPage.verifyViewCheckingAccounts();
 
-	}
-	@Then("verify account creation success message is displayed")
-	public void verify_account_creation_success_message_is_displayed() {
-		checkingPage.verifyNewAccountAlert();
-	}
 
-	@And("verify deposit entry is displayed in the transaction history")
-	public void verifyDepositEntryIsDisplayedInTheTransactionHistory() {
-		checkingPage.verifyDepositIsDisplayed();
-	}
 }

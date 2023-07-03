@@ -27,4 +27,8 @@ public class DepositSteps {
 	public void clickOnSubmitButtonOnADepositPage() {
 		depositPage.clickOnSubmitDepositBtn();
 	}
+	@And("verify deposit entry is displayed in the transaction history")
+	public void verifyDepositEntryIsDisplayedInTheTransactionHistory() {
+		depositPage.verifyDepositIsDisplayed();
+	}
 }
